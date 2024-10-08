@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+//Esta acción se usa para agregar la palabra buscada junto con su marca de tiempo al historial de búsquedas.
 interface HistoryItem {
   word: string;
   timestamp: string;

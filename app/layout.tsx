@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from './store'; // Asegúrate de que la ruta de importación sea correcta
-import type { Metadata } from "next";
+import { store } from './store/index';
+// import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
