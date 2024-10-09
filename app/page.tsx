@@ -14,7 +14,7 @@ import { WordData } from './utils/api';
 export default function Home() {
   const [wordData, setWordData] = useState<WordData | null>(null);
   const font = useSelector((state: RootState) => state.font);
-  const theme = useSelector((state: RootState) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme as 'dark' | 'light');
 
   const handleWordFound = (data: WordData) => {
     setWordData(data);
