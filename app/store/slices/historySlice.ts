@@ -12,8 +12,8 @@ const historySlice = createSlice({
   initialState,
   reducers: {
     addToHistory: (state, action: PayloadAction<HistoryItem>) => {
-      state.unshift(action.payload);
-      if (state.length > 10) {
+      state.unshift(action.payload);//Añade el nuevo historial al inicio del array
+      if (state.length > 10) {//Si el historial excede los 10 elementos, elimina el último elemento
         state.pop();
       }
     },

@@ -7,7 +7,7 @@ import { RootState } from '../store';
 const SearchHistory: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const history = useSelector((state: RootState) => state.history);
-
+  
   return (
     <div className="relative">
       <button
@@ -21,7 +21,7 @@ const SearchHistory: React.FC = () => {
           <ul className="py-2">
             {history.map((item, index) => (
               <li key={index} className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
-                <p className="font-semibold">{item.word}</p>
+                <p className="font-semibold text-gray-800 dark:text-gray-200">{item.word}</p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   {new Date(item.timestamp).toLocaleString()}
                 </p>

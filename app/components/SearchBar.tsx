@@ -1,9 +1,11 @@
 'use client';
 //Este componente manejará la búsqueda de palabras y mostrará mensajes de validación.
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
 import { addToHistory } from '../store/slices/historySlice';
 import { fetchWordData, WordData } from '../utils/api';
+import { ThemeState } from '../store/slices/themeSlice';
 //Define las propiedades (props) que el componente SearchBar acepta. En este caso, la propiedad onWordFound es una función que recibe como parámetro los datos de la palabra (WordData) cuando la búsqueda tiene éxito.
 interface SearchBarProps {
   onWordFound: (data: WordData) => void;
@@ -15,6 +17,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onWordFound }) => {
   // Almacena el mensaje de error si ocurre algún problema (como cuando el campo de búsqueda está vacío o si la llamada a la API falla).
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+
+  const theme = useSelector((state:RootState) => state.theme as ThemeState);
   // Esta función se ejecuta cuando el usuario envía el formulario de búsqueda
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onWordFound }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for a word..."
-        className="w-full p-2 border rounded"
+        className={`w-full p-2 border rounded ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}
       />
       {error && <p className="text-red-500 mt-1">{error}</p>}
       <button type="submit" className="mt-2 px-4 py-2 bg-blue-500 text-white rounded">

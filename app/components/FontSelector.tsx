@@ -6,6 +6,7 @@ import { RootState } from '../store';
 import { setFont } from '../store/slices/fontSlice';
 
 const FontSelector: React.FC = () => {
+  //font: para extraer el valor actual de la fuente desde el estado global de Redux.
   const font = useSelector((state: RootState) => state.font);
   const dispatch = useDispatch();
 

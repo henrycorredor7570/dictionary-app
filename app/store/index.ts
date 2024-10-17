@@ -3,7 +3,7 @@ import themeReducer from './slices/themeSlice';
 import fontReducer from './slices/fontSlice';
 import historyReducer from './slices/historySlice';
 
-export const store = configureStore({
+export const store = configureStore({//facilita la configuración del store de Redux
   reducer: {
     theme: themeReducer,
     font: fontReducer,
@@ -11,5 +11,5 @@ export const store = configureStore({
   },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;//representa el tipo del estado global del store.
 export type AppDispatch = typeof store.dispatch;
